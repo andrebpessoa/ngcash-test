@@ -5,6 +5,8 @@ services:
     container_name: app-client
     depends_on:
       - server
+    environment:
+      - VITE_API_URL=http://localhost:3001
     ports:
       - "3000:3000"
     restart: always
