@@ -2,6 +2,16 @@
 import prisma from './index'
 
 async function main (): Promise<any> {
+  const adminExists = await prisma.user.findUnique({
+    where: {
+      username: 'admin'
+    }
+  })
+
+  if (adminExists) {
+    return await prisma.$disconnect()
+  }
+
   return await prisma.user.create({
     data: {
       username: 'admin',
