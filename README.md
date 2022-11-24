@@ -27,7 +27,7 @@ http://localhost:3000/
 
 Para derrubar todos os serviços, basta utilizar `CTRL+C`.
 
-**Caso não seja possível executar o código localmente, ele também pode ser acessado por esse [link](https://ngcash-client-production.up.railway.app/)**
+<!-- **Caso não seja possível executar o código localmente, ele também pode ser acessado por esse [link](https://ngcash-client-production.up.railway.app/)** -->
 
 ## Observações
 
