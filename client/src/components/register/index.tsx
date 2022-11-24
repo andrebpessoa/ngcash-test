@@ -20,6 +20,8 @@ import axios from 'axios'
 
 import { IRegister } from '../../interfaces/IRegister'
 
+const api = import.meta.env.VITE_API_URL as string
+
 const useStyles = createStyles((theme) => ({
   title: {
     fontSize: 26,
@@ -60,7 +62,7 @@ export function Register(): JSX.Element {
     setErrorMessage('')
 
     await axios
-      .post('http://localhost:3001/register', { username, password })
+      .post(`${api}/register`, { username, password })
       .then(() => {
         setLoading(false)
         setSuccessMessage(

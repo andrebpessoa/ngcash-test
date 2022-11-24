@@ -18,6 +18,8 @@ import { useAuth } from '../../hooks/useAuth'
 import { ITransaction } from '../../interfaces/ITransaction'
 import { IconArrowLeft } from '@tabler/icons'
 
+const api = import.meta.env.VITE_API_URL as string
+
 const useStyles = createStyles((theme) => ({
   title: {
     fontSize: 26,
@@ -59,7 +61,7 @@ export function Transaction(): JSX.Element {
 
     await axios
       .post(
-        'http://localhost:3001/account/transaction',
+        `${api}/account/transaction`,
         { username, balance },
         {
           headers: {

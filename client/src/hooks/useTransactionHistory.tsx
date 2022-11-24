@@ -6,13 +6,15 @@ interface IAxiosFetcher {
   token: string
 }
 
+const api = import.meta.env.VITE_API_URL as string
+
 const fetcher = ({ url, token }: IAxiosFetcher) =>
   axios.get(url, { headers: { Authorization: token } }).then((res) => res.data)
 
 export const useTransactionHistory = (token: string | null) => {
   const { data, error } = useSWR(
     {
-      url: `http://localhost:3001/transactions/user`,
+      url: `${api}/transactions/user`,
       token
     } as IAxiosFetcher,
     fetcher

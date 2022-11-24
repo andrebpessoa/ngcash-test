@@ -19,6 +19,8 @@ import { ILogin } from '../../interfaces/ILogin'
 import { useAuth } from '../../hooks/useAuth'
 import { IAuth } from '../../context/AuthProvider'
 
+const api = import.meta.env.VITE_API_URL as string
+
 export function Login(): JSX.Element {
   const [loading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
@@ -39,7 +41,7 @@ export function Login(): JSX.Element {
     setErrorMessage('')
 
     await axios
-      .post('http://localhost:3001/authenticate', { username, password })
+      .post(`${api}/authenticate`, { username, password })
       .then(({ data }) => {
         setLoading(false)
         onLogin(data as IAuth, rememberMe)
