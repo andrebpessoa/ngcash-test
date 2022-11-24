@@ -7,7 +7,7 @@
     "seed": "ts-node src/prisma/seed.ts"
   },
   "scripts": {
-    "build": "tsc && tsc-alias && npx prisma generate --schema src/prisma/schema.prisma",
+    "build": "npx prisma generate --schema src/prisma/schema.prisma && tsc && tsc-alias",
     "deploy": "npx prisma migrate deploy --schema src/prisma/schema.prisma && npx prisma db seed",
     "start": "yarn run deploy && node dist/server.js",
     "dev": "nodemon --watch 'src/' --exec 'ts-node --files -r tsconfig-paths/register src/server.ts' -e ts"
